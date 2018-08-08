@@ -38,10 +38,25 @@ HEADERS += \
 FORMS += \
         mainwidget.ui
 
-#win32:CONFIG(release, debug|release): LIBS += -L'C:/Program Files/MySQL/MySQL Server 8.0/lib/' -llibmysql
-#else:win32:CONFIG(debug, debug|release): LIBS += -L'C:/Program Files/MySQL/MySQL Server 8.0/lib/' -llibmysqld
 
-#LIBS += -L'C:/Program Files/MySQL/MySQL Server 8.0/lib/' -llibmysqld
 
-#INCLUDEPATH += 'C:/Program Files/MySQL/MySQL Server 8.0/include'
-#DEPENDPATH += 'C:/Program Files/MySQL/MySQL Server 8.0/include'
+#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -llibmysql
+#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -llibmysqld
+#else:unix: LIBS += -LC:/mysql/lib/ -llibmysql
+
+#INCLUDEPATH += C:/mysql/include
+#DEPENDPATH += C:/mysql/include
+
+#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -lmysqlclient
+#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -lmysqlclientd
+#else:unix: LIBS += -LC:/mysql/lib/ -lmysqlclient
+
+#INCLUDEPATH += C:/mysql/include
+#DEPENDPATH += C:/mysql/include
+
+#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -lmysql
+#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -lmysqld
+#else:unix: LIBS += -LC:/mysql/lib/ -lmysql
+
+#INCLUDEPATH += C:/mysql/include
+#DEPENDPATH += C:/mysql/include

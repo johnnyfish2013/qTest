@@ -5,33 +5,33 @@
 #include <iostream>
 using namespace std;
 
-//class Father {
-//public:
-//    Father() {
-//        cout << "Constructor Father" << endl;
-//    }
-//    ~Father() {
-//        cout << "~Constructor Father" << endl;
-//    }
-//};
+class Father {
+public:
+    Father() {
+        cout << "Constructor Father" << endl;
+    }
+    ~Father() {
+        cout << "~Constructor Father" << endl;
+    }
+};
 
-//class Son : public Father {
-//public:
-//    Son() {
-//        cout << "Constructor Son" << endl;
-//    }
-//    ~Son() {
-//        cout << "~Constructor Son" << endl;
-//    }
-//};
+class Son : public Father {
+public:
+    Son() {
+        cout << "Constructor Son" << endl;
+    }
+    ~Son() {
+        cout << "~Constructor Son" << endl;
+    }
+};
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //    MainWidget w;
-    //    w.show();
+    MainWidget w;
+    w.show();
 
-    //    Son son;
+    Son son;
 
     UITools tools;
     bool bl = tools.larger(2,3);
@@ -39,8 +39,6 @@ int main(int argc, char *argv[])
 
     cout << "bl=" << bl<<endl;
     cout << "bs=" <<bs<< endl;
-
-    return 0;
 
     return a.exec();
 }
