@@ -22,6 +22,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+#DEPENDPATH += . ../testLib
+#INCLUDEPATH += ../testLib
+#LIBS += -L../testLib/debug -ltestLib
+
 SOURCES += \
         main.cpp \
         mainwidget.cpp \
@@ -38,25 +42,26 @@ HEADERS += \
 FORMS += \
         mainwidget.ui
 
+#INCLUDEPATH += "$$PWD/myLibs"
 
+#LIBS += "$$PWD/myLibs/testLib.dll"
 
-#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -llibmysql
-#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -llibmysqld
-#else:unix: LIBS += -LC:/mysql/lib/ -llibmysql
+#compiles in Windows7, but is OS dependant:
+#INCLUDEPATH += "./myLibrary"
 
-#INCLUDEPATH += C:/mysql/include
-#DEPENDPATH += C:/mysql/include
+#correct method:
+INCLUDEPATH += "$$PWD/myLibs"
 
-#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -lmysqlclient
-#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -lmysqlclientd
-#else:unix: LIBS += -LC:/mysql/lib/ -lmysqlclient
+#compiles, but hardcoded path
+#g++ -Wl,-subsystem,windows -mthreads -o debug\myProgram.exe debug/main.o debug/mainwindow.o debug/moc_mainwindow.o  -lmingw32 -LC:/Qt/Qt5.5/5.5/mingw492_32/lib -lqtmaind -lshell32 c:/somewhere/myProgram/myLibrary/mylibrary.dll -lQt5Widgetsd -lQt5Guid -lQt5Cored
+#LIBS += "c:/somewhere/myProgram/myLibrary/mylibrary.dll"
 
-#INCLUDEPATH += C:/mysql/include
-#DEPENDPATH += C:/mysql/include
+#incorrect
+#g++ -Wl,-subsystem,windows -mthreads -o debug\myProgram.exe debug/main.o debug/mainwindow.o debug/moc_mainwindow.o  -lmingw32 -LC:/Qt/Qt5.5/5.5/mingw492_32/lib -lqtmaind -lshell32 ./myLibrary/mylibrary.dll -lQt5Widgetsd -lQt5Guid -lQt5Cored
+#g++: error: ./myLibrary/mylibrary.dll: No such file or directory
+#LIBS += "./myLibrary/mylibrary.dll"
 
-#win32:CONFIG(release, debug|release): LIBS += -LC:/mysql/lib/ -lmysql
-#else:win32:CONFIG(debug, debug|release): LIBS += -LC:/mysql/lib/ -lmysqld
-#else:unix: LIBS += -LC:/mysql/lib/ -lmysql
+#compiles, with relative path, correct method
+#g++ -Wl,-subsystem,windows -mthreads -o debug\myProgram.exe debug/main.o debug/mainwindow.o debug/moc_mainwindow.o  -lmingw32 -LC:/Qt/Qt5.5/5.5/mingw492_32/lib -lqtmaind -lshell32 C:/somewhere/myProgram/myLibrary/mylibrary.dll -lQt5Widgetsd -lQt5Guid -lQt5Cored
+LIBS += "$$PWD/myLibs/testLib.dll"
 
-#INCLUDEPATH += C:/mysql/include
-#DEPENDPATH += C:/mysql/include

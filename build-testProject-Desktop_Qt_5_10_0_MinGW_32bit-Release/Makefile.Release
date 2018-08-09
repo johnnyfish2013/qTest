@@ -14,10 +14,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -O2 -Wextra -Wall -W $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -O2 -std=gnu++11 -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\testProject -I. -IC:\mysql\include -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtGui -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtCore -Irelease -I. -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\mkspecs\win32-g++ 
+INCPATH       = -I..\testProject -I. -I..\testProject\myLibs -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtGui -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\include\QtCore -Irelease -I. -IC:\Qt\Qt5.10.0\5.10.0\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libqtmain.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -LC:\mysql\lib C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Widgets.a C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Gui.a C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Core.a 
+LIBS        =        -lmingw32 -LC:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libqtmain.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 D:\gQT\testProject\myLibs\testLib.dll C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Widgets.a C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Gui.a C:\Qt\Qt5.10.0\5.10.0\mingw53_32\lib\libQt5Core.a 
 QMAKE         = C:\Qt\Qt5.10.0\5.10.0\mingw53_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -223,7 +223,7 @@ release/moc_mainwidget.cpp: ../testProject/Person/person.h \
 		../testProject/mainwidget.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.10.0\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/mkspecs/win32-g++ -ID:/gQT/testProject -IC:/mysql/include -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\testProject\mainwidget.h -o release\moc_mainwidget.cpp
+	C:\Qt\Qt5.10.0\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/mkspecs/win32-g++ -ID:/gQT/testProject -ID:/gQT/testProject/myLibs -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\testProject\mainwidget.h -o release\moc_mainwidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -361,18 +361,7 @@ release/main.o: ../testProject/main.cpp ../testProject/mainwidget.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
-		../testProject/Common/uitools.h \
-		C:/mysql/include/mysql.h \
-		C:/mysql/include/binary_log_types.h \
-		C:/mysql/include/my_list.h \
-		C:/mysql/include/mysql_com.h \
-		C:/mysql/include/my_command.h \
-		C:/mysql/include/mysql/udf_registration_types.h \
-		C:/mysql/include/mysql/client_plugin.h \
-		C:/mysql/include/mysql/plugin_auth_common.h \
-		C:/mysql/include/mysql_version.h \
-		C:/mysql/include/mysql_time.h \
-		C:/mysql/include/errmsg.h
+		../testProject/Common/uitools.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\testProject\main.cpp
 
 release/mainwidget.o: ../testProject/mainwidget.cpp ../testProject/mainwidget.h \
@@ -482,52 +471,8 @@ release/mainwidget.o: ../testProject/mainwidget.cpp ../testProject/mainwidget.h 
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qtouchdevice.h \
 		ui_mainwidget.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qicon.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qregularexpression.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractbutton.h
+		../testProject/myLibs/testlib.h \
+		../testProject/myLibs/testlib_global.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwidget.o ..\testProject\mainwidget.cpp
 
 release/person.o: ../testProject/Person/person.cpp ../testProject/Person/person.h \
